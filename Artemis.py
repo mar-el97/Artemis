@@ -1,10 +1,11 @@
 import subprocess
-import re
+
 
 print("Artemis, the Goddess who hunts your local admins!")
 p = subprocess.Popen(["powershell.exe", "Import-Module ActiveDirectory; Get-ADComputer -Filter * | Select-Object -ExpandProperty Name"], stdout=subprocess.PIPE)
 output, error = p.communicate()
 computers = output.decode().strip().split('\r\n')
+
 
 results = []
 
